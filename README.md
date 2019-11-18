@@ -46,7 +46,7 @@ Note: Data stored to memory, there are no databases
 * Withdrawal edge case - cannot withdraw more than the balance available. Raises error if attempted.
 
 ### Challenges / Future Development ###
-I could have made separate withdrawal and deposit classes, however the instance variables and methods for each would be very similar. To keep the code DRY while the requirements are still basic - I have created one transaction class. If the classes were to diverge further and more methods/variables would be required I would pay attention to my method naming to ensure polymorphism across the two new classes so other methods can process either class without needing to distinguish between the two.
+I could have made separate withdrawal and deposit classes, however the instance variables and methods for each would be very similar. To keep the code DRY while the requirements are still basic - I have created one transaction class. If the classes were to diverge further and different methods/variables would be required in each, I would name appropriate methods the same to ensure polymorphism across the two new classes so other methods can process either class without needing to distinguish between the two.
 
 ## Tests ##
 
@@ -56,7 +56,7 @@ RSpec - unit tests written for each feature, and dependency injection used to en
 
 SimpleCov - used to ensure high test coverage. Current test coverage is 100 %.
 
-RuboCop - used to ensure high quality syntax that follows Ruby convention where possible. Currently 43 offences detected.
+RuboCop - used to ensure high quality syntax that follows Ruby convention where possible. Currently 26 offences detected.
 
 #### Acceptance Criteria ####
 * Given a client makes a deposit of 1000 on 10-01-2012

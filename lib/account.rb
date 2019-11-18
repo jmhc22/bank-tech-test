@@ -14,15 +14,13 @@ class Account
   end
 
   def deposit(amount:, date: Date.today)
-    transaction = @transaction_class.new(amount: amount, balance: @current_balance, date: date)
-    process(transaction.deposit, transaction)
+    process(@transaction_class.new(amount: amount, balance: @current_balance, type: :deposit, date: date))
   end
 
   def withdraw(amount:, date: Date.today)
     raise('Insufficient funds') if amount_unavailable?(amount)
 
-    transaction = @transaction_class.new(amount: amount, balance: @current_balance, date: date)
-    process(transaction.withdrawal, transaction)
+    process(@transaction_class.new(amount: amount, balance: @current_balance, type: :withdrawal, date: date))
   end
 
   def print_statement
@@ -35,8 +33,8 @@ class Account
     amount > @current_balance
   end
 
-  def process(amount, transaction)
-    @current_balance += amount
+  def process(transaction)
+    @current_balance = transaction.incurred_balance
     @transaction_log.push(transaction)
   end
 end

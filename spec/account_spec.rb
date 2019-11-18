@@ -13,29 +13,29 @@ describe Account do
   describe '#deposit' do
     it 'depositing 2000 increases the users balance by 2000' do
       original_balance = account.current_balance
-      allow(transaction_double).to receive(:deposit).and_return(2000)
+      allow(transaction_double).to receive(:incurred_balance).and_return(2000)
       account.deposit(amount: 2000)
       expect(account.current_balance).to eq (original_balance + 2000)
     end
 
     it 'depositing 1000 then 500 increases the users balance by 1500' do
-      original_balance = account.current_balance
-      allow(transaction_double).to receive(:deposit).and_return(1000)
+      allow(transaction_double).to receive(:incurred_balance).and_return(1000)
       account.deposit(amount: 1000)
-      allow(transaction_double).to receive(:deposit).and_return(500)
+      expect(account.current_balance).to eq 1000
+      allow(transaction_double).to receive(:incurred_balance).and_return(1500)
       account.deposit(amount: 500)
-      expect(account.current_balance).to eq (original_balance + 1500)
+      expect(account.current_balance).to eq 1500
     end
   end
 
   describe '#withdraw' do
     it 'withdrawing 100 decreases the users balance by 100' do
-      allow(transaction_double).to receive(:deposit).and_return(500)
+      allow(transaction_double).to receive(:incurred_balance).and_return(500)
       account.deposit(amount: 500)
-      original_balance = account.current_balance
-      allow(transaction_double).to receive(:withdrawal).and_return(-100)
+      expect(account.current_balance).to eq 500
+      allow(transaction_double).to receive(:incurred_balance).and_return(400)
       account.withdraw(amount: 100)
-      expect(account.current_balance).to eq (original_balance - 100)
+      expect(account.current_balance).to eq 400
     end
 
     it 'withdrawing more than the available account balance will throw an error' do
@@ -45,16 +45,15 @@ describe Account do
 
   describe '#transaction_log' do
     it 'transactions are saved to the transaction log' do
-      allow(transaction_double).to receive(:deposit).and_return(500)
+      allow(transaction_double).to receive(:incurred_balance)
       account.deposit(amount: 500)
       expect(account.transaction_log).to include transaction_double
     end
 
     it 'if two transactions completed, the log will contain two objects' do
-      allow(transaction_double).to receive(:deposit).and_return(500)
+      allow(transaction_double).to receive(:incurred_balance).and_return(500)
       account.deposit(amount: 500)
       expect(account.transaction_log.size).to eq 1
-      allow(transaction_double).to receive(:withdrawal).and_return(500)
       account.withdraw(amount: 200)
       expect(account.transaction_log.size).to eq 2
     end
