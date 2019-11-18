@@ -97,6 +97,51 @@
         null,
         null
       ],
+      "/Users/jamesclark/Coding/makers-course/week10/bank-tech-test/spec/statement_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        2,
+        null,
+        2,
+        null,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jamesclark/Coding/makers-course/week10/bank-tech-test/lib/statement.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        6,
+        2,
+        null,
+        null,
+        null
+      ],
       "/Users/jamesclark/Coding/makers-course/week10/bank-tech-test/spec/transaction_spec.rb": [
         1,
         1,
@@ -170,6 +215,6 @@
         null
       ]
     },
-    "timestamp": 1574087221
+    "timestamp": 1574089773
   }
 }
