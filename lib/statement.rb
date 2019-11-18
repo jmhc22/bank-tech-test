@@ -1,11 +1,11 @@
 class Statement
 
   def initialize
-    @statement_headers = "date || credit || debit || balance\n"
+    @statement_header = "date || credit || debit || balance\n"
   end
 
-  def print_statement(transactions)
-    return @statement_headers +
+  def generate_statement(transactions)
+    return @statement_header +
     transactions.reverse.map { |t|
       "#{t.date.strftime('%e/%-m/%Y')} || #{format(t.credit)} || #{format(t.debit)} || #{format(t.balance)}"
     }.join("\n")

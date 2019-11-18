@@ -36,3 +36,26 @@ class will have a type variable to distinguish between the two. Or I will use
 polymorphism?
 
 Withdrawal edge case - cannot withdraw more than the balance available.
+
+#### Acceptance Criteria ####
+
+Given a client makes a deposit of 1000 on 10-01-2012
+And a deposit of 2000 on 13-01-2012
+And a withdrawal of 500 on 14-01-2012
+When she prints her bank statement
+Then she would see
+'''
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || || 3000.00
+10/01/2012 || 1000.00 || || 1000.00
+'''
+
+launch irb
+'''ruby
+account = Account.new
+account.deposit(amount: 1000, date: Date.parse('2012-01-10'))
+account.deposit(amount: 2000, date: Date.parse('2012-01-13'))
+account.withdraw(amount: 500, date: Date.parse('2012-01-14'))
+account.print_statement
+'''
