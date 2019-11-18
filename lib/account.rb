@@ -4,7 +4,7 @@ require_relative 'statement'
 
 class Account
   attr_reader :current_balance, :transaction_log
-  def initialize(initial_balance: 0, transaction_class: Transaction, statement: Statement.new )
+  def initialize(initial_balance: 0, transaction_class: Transaction, statement: Statement.new)
     @current_balance = initial_balance
     @statement = statement
     @transaction_class = transaction_class

@@ -1,11 +1,11 @@
 require 'account'
 
 describe Account do
-
   let(:transaction_double) { double :transaction_double }
   let(:transaction_class_double) { double :transaction_class_double, new: transaction_double }
   expected_statement = "date || credit || debit || balance\n18/11/2019 ||  || 250.00 || 750.00\n17/11/2019 || 1000.00 ||  || 1000.00"
   let(:statement_double) { double :statement_double, generate_statement: expected_statement }
+
   subject(:account) { described_class.new(transaction_class: transaction_class_double, statement: statement_double) }
 
   describe '#deposit' do
