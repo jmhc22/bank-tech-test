@@ -37,8 +37,8 @@ Note: Data stored to memory, there are no databases
 | Classes    | Methods |
 | -------- | ------- |
 | Account  | deposit, withdraw, current_balance, print_statement |
-| Transaction | date, amount, balance, credit/debit |
-| Statement | return_statement |
+| Transaction | date, incurred_balance, credit, debit |
+| Statement | generate_statement |
 
 
 #### Edge Cases ####
