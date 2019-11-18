@@ -9,11 +9,16 @@ class Account
   end
 
   def withdraw(amount:)
-    unless amount > @current_balance
+    unless amount_available?(amount)
       @current_balance -= amount
     else
       raise('Insufficient funds')
     end
   end
 
+  private
+
+  def amount_available?(amount)
+    amount > @current_balance
+  end
 end
