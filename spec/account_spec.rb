@@ -39,4 +39,21 @@ describe Account do
     end
   end
 
+  describe '#transaction_log' do
+    it 'transactions are saved to the transaction log' do
+      allow(transaction_double).to receive(:deposit).and_return(500)
+      account.deposit(amount: 500)
+      expect(account.transaction_log).to include transaction_double
+    end
+
+    it 'if two transactions completed, the log will contain two objects' do
+      allow(transaction_double).to receive(:deposit).and_return(500)
+      account.deposit(amount: 500)
+      expect(account.transaction_log.size).to eq 1
+      allow(transaction_double).to receive(:withdrawal).and_return(500)
+      account.withdraw(amount: 200)
+      expect(account.transaction_log.size).to eq 2
+    end
+  end
+
 end
