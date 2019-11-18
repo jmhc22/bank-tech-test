@@ -25,5 +25,6 @@ class Transaction
   def calculate_balance
     @balance += (@debit || 0) + (@credit || 0)
     @amount = 0
+    return @credit || @debit
   end
 end
