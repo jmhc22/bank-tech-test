@@ -16,7 +16,19 @@ describe Account do
       account.deposit(amount: 500)
       expect(account.current_balance).to eq (original_balance + 1500)
     end
+  end
 
+  describe '#withdraw' do
+    it 'withdrawing 100 decreases the users balance by 100' do
+      account.deposit(amount: 500)
+      original_balance = account.current_balance
+      account.withdraw(amount: 100)
+      expect(account.current_balance).to eq (original_balance - 100)
+    end
+
+    it 'withdrawing more than the available account balance will throw an error' do
+      expect{ account.withdraw(amount: 100) }.to raise_error('Insufficient funds')
+    end
   end
 
 end
