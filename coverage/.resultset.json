@@ -97,6 +97,19 @@
         1,
         null,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/jamesclark/Coding/makers-course/week10/bank-tech-test/lib/transaction.rb": [
@@ -105,9 +118,9 @@
         1,
         1,
         1,
-        2,
-        2,
-        2,
+        4,
+        4,
+        4,
         null,
         null,
         1,
@@ -132,6 +145,6 @@
         null
       ]
     },
-    "timestamp": 1574085944
+    "timestamp": 1574086142
   }
 }

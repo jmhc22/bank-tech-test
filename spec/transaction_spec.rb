@@ -22,4 +22,17 @@ describe Transaction do
       expect(transaction.balance).to eq 500
     end
   end
+
+  describe '#date' do
+    it 'a transaction will by default set the date variable to today' do
+      transaction = Transaction.new(amount: 500, balance: 1000)
+      expect(transaction.date).to eq Date.today
+    end
+
+    it 'a transaction date can be overrided with a different date' do
+      yesterday = Date.today - 1
+      transaction = Transaction.new(amount: 500, balance: 1000, date: yesterday)
+      expect(transaction.date).to eq yesterday
+    end
+  end
 end
