@@ -25,7 +25,7 @@ Note: Data stored to memory, there are no databases
 | -------- | ------- |
 | Account  | deposit, withdraw, current_balance |
 | Transaction | date, amount, type, new_balance |
-| Statement | print,
+| Statement | print |
 
 Could have made separate withdrawal and deposit classes, however the instance
 variables and methods would be very similar - so to DRY up the code the transaction
