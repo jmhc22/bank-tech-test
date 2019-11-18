@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe Account do
@@ -37,7 +39,7 @@ describe Account do
     end
 
     it 'withdrawing more than the available account balance will throw an error' do
-      expect{ account.withdraw(amount: 100) }.to raise_error('Insufficient funds')
+      expect { account.withdraw(amount: 100) }.to raise_error('Insufficient funds')
     end
   end
 

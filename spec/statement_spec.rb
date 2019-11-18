@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'statement'
 require 'date'
 
 describe Statement do
   subject(:statement) { described_class.new }
 
-  let(:transaction_double1) {
+  let(:transaction_double1) do
     double :transaction_double1, date: Date.parse('2019-11-17'),
-    credit: 1000, balance: 1000, debit: false
-  }
-  let(:transaction_double2) {
+                                 credit: 1000, balance: 1000, debit: false
+  end
+  let(:transaction_double2) do
     double :transaction_double2, date: Date.parse('2019-11-18'),
-    credit: false, balance: 750, debit: -250 
-  }
+                                 credit: false, balance: 750, debit: -250
+  end
 
   describe '#generate_statement' do
     it 'passing in the transaction log will print a statement' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 require_relative 'transaction'
 require_relative 'statement'
@@ -18,6 +20,7 @@ class Account
 
   def withdraw(amount:, date: Date.today)
     raise('Insufficient funds') if amount_unavailable?(amount)
+
     transaction = @transaction_class.new(amount: amount, balance: @current_balance, date: date)
     process(transaction.withdrawal, transaction)
   end
