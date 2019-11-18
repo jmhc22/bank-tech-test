@@ -19,4 +19,15 @@ irb -r 'tbc'
 * A user can make a withdrawal from their account
 * A user can print a bank statement (date, amount, balance)
 
-Note: Data stored to memory, there are not databases
+Note: Data stored to memory, there are no databases
+
+| Class    | Methods |
+| -------- | ------- |
+| Account  | deposit, withdraw, current_balance |
+| Transaction | date, amount, type, new_balance |
+| Statement | print,
+
+Could have made separate withdrawal and deposit classes, however the instance
+variables and methods would be very similar - so to DRY up the code the transaction
+class will have a type variable to distinguish between the two. Or I will use
+polymorphism?
