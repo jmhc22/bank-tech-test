@@ -14,6 +14,6 @@ class Statement
   private
 
   def format(num)
-    num.is_a?(Integer) ? '%.2f' % num.abs : ''
+    num.is_a?(Integer) ? sprintf('%.2f', num.abs) : ''
   end
 end

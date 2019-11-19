@@ -56,7 +56,7 @@ RSpec - unit tests written for each feature, and dependency injection used to en
 
 SimpleCov - used to ensure high test coverage. Current test coverage is 100 %.
 
-RuboCop - used to ensure high quality syntax that follows Ruby convention where possible. Currently 26 offences detected.
+RuboCop - used to ensure high quality syntax that follows Ruby convention where possible. Currently 2 LineLength offences detected.
 
 #### Acceptance Criteria ####
 * Given a client makes a deposit of 1000 on 10-01-2012

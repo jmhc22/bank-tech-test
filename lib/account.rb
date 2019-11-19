@@ -14,7 +14,9 @@ class Account
   end
 
   def deposit(amount:, date: Date.today)
-    process(@transaction_class.new(amount: amount, balance: @current_balance, type: :deposit, date: date))
+    process(
+      @transaction_class.new(amount: amount, balance: @current_balance, type: :deposit, date: date)
+    )
   end
 
   def withdraw(amount:, date: Date.today)

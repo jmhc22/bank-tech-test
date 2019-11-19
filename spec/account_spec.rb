@@ -15,7 +15,7 @@ describe Account do
       original_balance = account.current_balance
       allow(transaction_double).to receive(:incurred_balance).and_return(2000)
       account.deposit(amount: 2000)
-      expect(account.current_balance).to eq (original_balance + 2000)
+      expect(account.current_balance).to eq(original_balance + 2000)
     end
 
     it 'depositing 1000 then 500 increases the users balance by 1500' do
