@@ -13,13 +13,13 @@ class Account
     @transaction_log = []
   end
 
-  def deposit(amount:, date: Date.today)
+  def deposit(amount:, date: nil)
     process(
       @transaction_class.new(amount: amount, balance: @current_balance, type: :deposit, date: date)
     )
   end
 
-  def withdraw(amount:, date: Date.today)
+  def withdraw(amount:, date: nil)
     raise('Insufficient funds') if amount_unavailable?(amount)
 
     process(@transaction_class.new(amount: amount, balance: @current_balance, type: :withdrawal, date: date))
